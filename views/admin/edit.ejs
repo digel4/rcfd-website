@@ -1,0 +1,77 @@
+<% include ../partials/header %>
+
+
+<h1 style="text-align: center;">
+Edit <%= event.name %>
+</h1>
+<div class="container row" style="width:30%; margin: 30px auto;">
+	<form action="/<%= event._id %>?_method=PUT" method="POST">
+		
+		<% 
+		var myDate = new Date(event.longDate).toISOString().split('T')[0];
+		console.log(event.startTime)
+
+		
+		
+		%>
+		
+				<h1>	
+			Edit this event
+		</h1>
+		<div class="form-group">
+			<input class="form-control" type="text" name="event[name]" placeholder="name" value="<%= event.name %>">
+		</div>
+		<div class="form-group">
+			<input class="form-control" type="date" name="date" value="<%= myDate %>">
+		</div>
+		<div class="form-group">
+			<input class="form-control" type="time" name="event[startTime]" placeholder="Start Time" value="<%= event.startTime %>">
+		</div>
+		<div class="form-group">
+			<input class="form-control" type="time" name="event[endTime]" placeholder="End Time" value="<%= event.endTime %>">
+		</div>
+		<div class="form-group">
+			<input class="form-control" type="text" name="event[eventURL]" placeholder="Event URL" value="<%= event.eventURL %>">
+		</div>
+		<div class="form-group">
+			<input class="form-control" type="text" name="event[image]" placeholder="image url" value="<%= event.image %>">
+		</div>
+		<h1>
+			address
+		</h1>
+		<div class="form-group">
+			<input class="form-control" type="text" name="event[businessName]" placeholder="Business Name" value="<%= event.businessName %>">
+		</div>
+		<div class="form-group">
+			<input class="form-control" type="text" name="event[streetNumber]" placeholder="Street Number" value="<%= event.streetNumber %>">
+		</div>
+		<div class="form-group">
+			<input class="form-control" type="text" name="event[streetName]" placeholder="Street Name" value="<%= event.streetName %>">
+		</div>
+		<div class="form-group">
+			<input class="form-control" type="text" name="event[city]" placeholder="City" value="<%= event.city %>">
+		</div>
+		<div class="form-group">
+			<input class="form-control" type="text" name="event[postcode]" placeholder="Postcode" value="<%= event.postcode %>">
+		</div>
+
+		<h1>
+			Event Descriptions
+		</h1>
+		<div class="form-group">
+			<textarea rows="10" cols="100" class="form-control" type="text" name="event[description]" spellcheck="on"><%= event.description %></textarea>
+		</div>
+		<div class="form-group">
+			<input class="form-control" type="text" maxlength="162" name="event[excerpt]" placeholder="excerpt" value="<%= event.excerpt %>">
+		</div>
+		<button type="submit" class="btn btn-primary btn-block">
+		Update!
+		</button>
+		<a href="/events">Back to Events</a>
+	</form>
+	
+</div>
+		
+<script> $('textarea').htmlarea();</script>
+<% include ../partials/footer %>
+		

@@ -1,0 +1,62 @@
+<%include ../partials/header%>
+
+<div class="container">
+	<h1 class="h1b my-4"><strong>Events & Workshops</strong></h1>
+	<h2 class="h2b">
+		Upcoming Events
+	</h2>
+	<div class="row">
+		<% var pastEvents = [];
+		 events.forEach((events) => {
+			var eventDate = new Date(events.longDate);
+			var currentDate = new Date();
+			if (currentDate <= eventDate) { %>
+				<div class="card m-4" style="width: 24rem;">
+					<img src="<%= events.image %>" class="card-img-top " alt="...">
+					<div class="d-flex card-date card-img-overlay w-25">
+						<p class="bodycopyb text-center card-text"><%= events.shortDate %></p>
+					</div>
+					<div class="d-flex flex-column card-body mx-auto card-img-overlay">
+						<h3 class="h3o card-text mx-auto text-center"><%= events.name %></h3>
+						<p class="bodycopyb card-text text-center"><%= events.excerpt %></p>
+						<a href="/<%= events._id %>" class="card-text text-center btn btn-primary h3w">see more</a>
+						<a href="/<%= events._id %>/edit" class="card-text text-center btn btn-primary h3w">edit</a>
+						<form class="delete-form" action="/<%= events._id %>?_method=DELETE" method="POST">
+							<button class="btn btn-danger">
+								Delete
+							</button>
+						</form>
+					</div>
+				</div>
+			<% } else { 
+				pastEvents.push(events)
+			} %>
+		<% }); %>
+	</div>
+	<h2 class="h2b">
+		Past Events
+	</h2>
+	<div class="row">
+		<% pastEvents.forEach((events) => { %>
+		<div class="card m-4" style="width: 24rem;">
+			<img src="<%= events.image %>" class="card-img-top " alt="...">
+			<div class="d-flex card-date card-img-overlay w-25">
+				<p class="bodycopyb text-center card-text"><%= events.shortDate %></p>
+			</div>
+			<div class="d-flex flex-column card-body mx-auto card-img-overlay">
+				<h3 class="h3o card-text mx-auto text-center"><%= events.name %></h3>
+				<p class="bodycopyb card-text text-center"><%= events.excerpt %></p>
+				<a href="/<%= events._id %>" class="card-text text-center btn btn-primary h3w">see more</a>
+				<a href="/<%= events._id %>/edit" class="card-text text-center btn btn-primary h3w">edit</a>
+				<form class="delete-form" action="/<%= events._id %>?_method=DELETE" method="POST">
+					<button class="btn btn-danger" value="">
+						Delete
+					</button>
+				</form>
+			</div>
+		</div>
+		<% }) %>
+	</div>
+</div>
+
+<%include ../partials/footer%>

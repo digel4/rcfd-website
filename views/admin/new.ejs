@@ -1,0 +1,69 @@
+<% include ../partials/header %>
+
+
+
+
+
+<p class="test">if this is blue then the css is connected</p>
+
+<div class="container row" style="width:80%; margin:auto;">
+	<form action="/admin/new" method="POST">
+		<h1>	
+			Create a new event
+		</h1>
+		<div class="form-group">
+			<input class="form-control" type="text" name="name" placeholder="name">
+		</div>
+		<div class="form-group">
+			<input class="form-control" type="date" name="date" placeholder="date">
+		</div>
+		<div class="form-group">
+			<input class="form-control" type="time" name="startTime" placeholder="Start Time">
+		</div>
+		<div class="form-group">
+			<input class="form-control" type="time" name="endTime" placeholder="End Time">
+		</div>
+		<div class="form-group">
+			<input class="form-control" type="text" name="eventURL" placeholder="Event URL">
+		</div>
+		<div class="form-group">
+			<input class="form-control" type="text" name="image" placeholder="image url">
+		</div>
+		<h1>
+			address
+		</h1>
+		<div class="form-group">
+			<input class="form-control" type="text" name="businessName" placeholder="Business Name">
+		</div>
+		<div class="form-group">
+			<input class="form-control" type="text" name="streetNumber" placeholder="Street Number">
+		</div>
+		<div class="form-group">
+			<input class="form-control" type="text" name="streetName" placeholder="Street Name">
+		</div>
+		<div class="form-group">
+			<input class="form-control" type="text" name="city" placeholder="City">
+		</div>
+		<div class="form-group">
+			<input class="form-control" type="text" name="postcode" placeholder="Postcode">
+		</div>
+
+		<h1>
+			Event Descriptions
+		</h1>
+		<div class="form-group">
+			<textarea rows="10" cols="100" class="form-control" type="text" name="description" placeholder="Event Description"></textarea>
+		</div>
+		<div class="form-group">
+			<input class="form-control" type="text" maxlength="162" name="excerpt" placeholder="excerpt">
+		</div>
+		<button type="submit" class="btn btn-primary btn-block">
+		Submit!
+		</button>
+		<a href="/events">Back to Events</a>
+	</form>
+	
+</div>
+		
+<script> $('textarea').htmlarea();</script>
+<% include ../partials/footer %>
