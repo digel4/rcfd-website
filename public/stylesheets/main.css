@@ -9,6 +9,10 @@ body {
 	Flex-basis: 400px;
 }
 
+.sign-up-btn {
+	opacity: 0%;
+}
+
 /* Animations */
 
 div.item:hover img{
@@ -300,12 +304,17 @@ hr {
 	width:100%;
 }
 
+#learn-more {
+	display:flex;
+	flex-direction: column;
+}
+
 #event-box {
 	background-color: #426F7E;
 	width: 100%;
 }
 
-#event-box div{
+.event-box div{
 	padding: 1.5rem;
 	display: flex;
 }
@@ -353,6 +362,11 @@ hr {
 		flex-direction:row;
 		width: 30%;
 		margin:auto;
+	}
+	
+	#learn-more {
+	display:flex;
+	flex-direction: column;
 	}
 
 }

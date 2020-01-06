@@ -4,38 +4,33 @@
 <div class="jumbotron jumbotron-fluid pb-0" style="background-image: url(/images/nae.png); background-size: cover; height: 85vh">
 	<div class="container d-flex flex-column" style="height: 50vh">
 		<div class="d-flex justify-content-center mt-auto">
-			<h1 class="display-4 h1w">Real Creative Futures</h1>
+			<h1 class="display-4 h1w">Real Creative Futures Digital</h1>
 		</div>
   		<div class="d-flex justify-content-center">
-  			<p class="lead text-center h3w">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+  			<p class="lead text-center h3w">The Real Creative Team are based at New Art Exchange, an award-winning art gallery and performance space in Hyson Green, Nottingham. The team work hard to make sure the events, workshops and support available, reflects the type of support Creative and Digital individuals are telling us they need! </p>
   		</div>
   		<div class="d-flex justify-content-center">
-  			<button class="btn btn-primary mr-4">Sign-up</button>
-  			<a class="btn btn-secondary" href="#landing-quote-box">Learn More</a>
+  			<button class="btn btn-primary mr-4 sign-up-btn">Sign-up</button>
+  			<a class="btn btn-secondary" href="#learn-more">Learn More</a>
   		</div>
   	</div>
 </div>
 
-<div class="d-flex container align-items-center justify-content-center" id="landing-quote-box">
+<!-- <div class="d-flex container align-items-center justify-content-center" id="landing-quote-box">
 		<blockquote class="blockquote text-center">
 			<h3 class="h3w text-center">Real Creative Futures allowed me to channel dark forces</h3>
 		 	<footer class="blockquote-footer bodycopyw">Some woman</footer>
 		</blockquote>
-</div>
+</div> -->
 
-<div class="container">
-	<div class="row bodycopyb">
-		<div class="col-xl-6 col-lg-12 col-sm-12 col-md-12">
-			<h2 class="h2o">Excepteur sint occaecat cupidatat non.</h2>
+<div class="container" >
+	<div class="bodycopyb" id="learn-more">
+		<div>
+			<h2 class="h2o">A Creative Business Support Programme.</h2>
+			<p>Real Creative Futures is New Art Exchange's offering to The Big House programme. RCF is a business support programme, aimed specifically at the creative and digital sectors, using  expertise and insight to help launch, innovate and grow creative enterprises. The project nurtures entrepreneurs and SMEs with 12 hours of free tailored support, including one‐to‐one mentoring from experts and advisers who have real experience within the creative and digital industries, in addition to networking events, seminars and workshops, to help you build valuable relationships and develop your skills. If you work in music, visual or performing arts, broadcasting, design, film, photography,architecture or publishing, online marketing and video, mobile applications design and web development, then you're part of the city's creative and digital industries. To be eligible, you need to be working within the creative and/or digital industries, as either an established SME or entrepreneur eager to set a business up. Your business must have less than 250 employees and not have received more than €200,000 in state funding. </p>
 		</div>
-		<div class="col-xl-6 col-lg-12 col-sm-12 col-md-12">
-			<p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est eopksio laborum. Sed ut perspiciatis unde omnis istpoe natus error sit voluptatem accusantium doloremque eopsloi laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunot explicabo. Nemo ernim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sedopk quia consequuntur magni dolores eos qui rationesopl voluptatem sequi nesciunt. Neque porro quisquameo est, qui dolorem ipsum quia dolor sit amet, eopsmiep consectetur, adipisci velit, seisud quia non numquam eius modi tempora incidunt ut labore et dolore wopeir magnam aliquam quaerat voluptatem eoplmuriquisqu</p>
-		</div>
-		<div class="col-xl-6 col-lg-12 col-sm-12 col-md-12">
-			<p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est eopksio laborum. Sed ut perspiciatis unde omnis istpoe natus error sit voluptatem accusantium doloremque eopsloi laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunot explicabo. Nemo ernim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sedopk quia consequuntur magni dolores eos qui rationesopl voluptatem sequi nesciunt. Neque porro quisquameo est, qui dolorem ipsum quia dolor sit amet, eopsmiep consectetur, adipisci velit, seisud quia non numquam eius modi tempora incidunt ut labore et dolore wopeir magnam aliquam quaerat voluptatem eoplmuriquisqu</p>
-		</div>
-		<div class="col-xl-6 col-lg-12 col-sm-12 col-md-12">
-			<p>Lorem ipsum dolor sit amet, consectetur eplos eklosi adipisifwcing elit, sed doio eiusmod tempor incididunt ut labore et dolore roipi magna aliqua. Ut enim adeop minim veeniam, quis nostruklad exercitation ullamico laboris nisi ut aliquip eux ea commodo consequatopo duis aute irure dolor in reprehenderit in tufpoy ilojsuir voluptate velit esse cillum dolore eu fugiat nulla eope parieratur. Excepteur sint occaecat cupidatat.</p>
+		<div>
+			<p>The Big House is a business support project, delivered by seven partners across Nottinghamshire and Derbyshire. Each partner organisation has specialist expertise in different areas of the creative and digital industries. The Big House partners include, The Creative Quarter company, NBV Enterprise Solutions Ltd, New Art Exchange, Nottingham City Council's Growth Hub, Nottingham Trent University; The Business School and the Hive (Nottingham Trent University's business incubator), Derby QUAD, Derby Theatre. The Big House programme is a 3-year, £5 million tailored support programme for the Creative and Digital Industries (CDI) sector in Nottingham, Nottinghamshire, Derby and Derbyshire. The programme is part-funded by a £2.5 million contribution from the European Regional Development Fund (ERDF) with match funding from the Creative Local Growth Fund programme, funded by The Arts Council.</p>
 		</div>
 	</div>
 </div>
@@ -46,83 +41,30 @@
 	
 <a href="/events" class="btn btn-primary my-4">Events & Workshops</a>
 
-<div class="events-gallery">
-	
+	<div class="events-gallery">
+		<div class="row">
+			<% if (events && events.length > 0) {
+				events.forEach((events) => {%>
+				<div class="card m-4" style="width: 24rem;">
+					<img src="<%= events.image %>" class="card-img-top " alt="...">
+					<div class="d-flex card-date card-img-overlay w-25">
+						<p class="bodycopyb text-center card-text"><%= events.shortDate %></p>
+					</div>
+					<div class="d-flex flex-column card-body mx-auto card-img-overlay">
+						<h3 class="h3o card-text text-center mx-auto"><%= events.name %></h3>
+						<p class="bodycopyb card-text text-center"><%= events.excerpt %></p>
+						<p class="bodycopyb card-text text-center"><a href="/<%= events._id %>">see more</a></p>
+					</div>
+				</div>
+			<% })} else { %>
+			<p class="h3b">
+				 There is no upcoming events. Please check again soon!
+			</p>
+			<% }; %>
+		</div>
+	</div>
+</div>
 
-<!-- **************************card*****************************************************************-->
-<div class="card m-4 item" style="width: 24rem;">
-	<img src="https://cdn.vox-cdn.com/thumbor/yw82cz9rDxGwk4Z8rHBzuHwagfE=/1400x1400/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/11557713/acastro_180321_1777_youtube_0003.0.jpg" class="card-img-top" alt="...">
-	<div class="d-flex card-date card-img-overlay w-25">
-		<p class="bodycopyb text-center card-text">25 Feb</p>
-	</div>
-	<div class="d-flex flex-column card-body mx-auto card-img-overlay">
-		<h3 class="h3o card-text text-center mx-auto">YouTube Workshop</h3>
-		<p class="bodycopyb card-text text-center">Excepteur sint occaecat cupidatat non proident, sunt in culpa</p>
-		<p class="bodycopyb card-text text-center"><a href="">See More</a></p>
-	</div>
-</div>
-<!-- **************************card*****************************************************************-->
-<div class="card m-4 item" style="width: 24rem;">
-	<img src="https://cdn.vox-cdn.com/thumbor/yw82cz9rDxGwk4Z8rHBzuHwagfE=/1400x1400/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/11557713/acastro_180321_1777_youtube_0003.0.jpg" class="card-img-top" alt="...">
-	<div class="d-flex card-date card-img-overlay w-25">
-		<p class="bodycopyb text-center card-text">25 Feb</p>
-	</div>
-	<div class="d-flex flex-column card-body mx-auto card-img-overlay">
-		<h3 class="h3o card-text text-center mx-auto">YouTube Workshop</h3>
-		<p class="bodycopyb card-text text-center">Excepteur sint occaecat cupidatat non proident, sunt in culpa</p>
-		<p class="bodycopyb card-text text-center"><a href="">See More</a></p>
-	</div>
-</div>
-	<!-- **************************card*****************************************************************-->
-<div class="card m-4 item" style="width: 24rem;">
-	<img src="https://cdn.vox-cdn.com/thumbor/yw82cz9rDxGwk4Z8rHBzuHwagfE=/1400x1400/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/11557713/acastro_180321_1777_youtube_0003.0.jpg" class="card-img-top" alt="...">
-	<div class="d-flex card-date card-img-overlay w-25">
-		<p class="bodycopyb text-center card-text">25 Feb</p>
-	</div>
-	<div class="d-flex flex-column card-body mx-auto card-img-overlay">
-		<h3 class="h3o card-text text-center mx-auto">YouTube Workshop</h3>
-		<p class="bodycopyb card-text text-center">Excepteur sint occaecat cupidatat non proident, sunt in culpa</p>
-		<p class="bodycopyb card-text text-center"><a href="">See More</a></p>
-	</div>
-</div>
-	<!-- **************************card*****************************************************************-->
-<div class="card m-4 item" style="width: 24rem;">
-	<img src="https://cdn.vox-cdn.com/thumbor/yw82cz9rDxGwk4Z8rHBzuHwagfE=/1400x1400/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/11557713/acastro_180321_1777_youtube_0003.0.jpg" class="card-img-top" alt="...">
-	<div class="d-flex card-date card-img-overlay w-25">
-		<p class="bodycopyb text-center card-text">25 Feb</p>
-	</div>
-	<div class="d-flex flex-column card-body mx-auto card-img-overlay">
-		<h3 class="h3o card-text text-center mx-auto">YouTube Workshop</h3>
-		<p class="bodycopyb card-text text-center">Excepteur sint occaecat cupidatat non proident, sunt in culpa</p>
-		<p class="bodycopyb card-text text-center"><a href="">See More</a></p>
-	</div>
-</div>
-	<!-- **************************card*****************************************************************-->
-<div class="card m-4 item" style="width: 24rem;">
-	<img src="https://cdn.vox-cdn.com/thumbor/yw82cz9rDxGwk4Z8rHBzuHwagfE=/1400x1400/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/11557713/acastro_180321_1777_youtube_0003.0.jpg" class="card-img-top" alt="...">
-	<div class="d-flex card-date card-img-overlay w-25">
-		<p class="bodycopyb text-center card-text">25 Feb</p>
-	</div>
-	<div class="d-flex flex-column card-body mx-auto card-img-overlay">
-		<h3 class="h3o card-text text-center mx-auto">YouTube Workshop</h3>
-		<p class="bodycopyb card-text text-center">Excepteur sint occaecat cupidatat non proident, sunt in culpa</p>
-		<p class="bodycopyb card-text text-center"><a href="">See More</a></p>
-	</div>
-</div>
-	<!-- **************************card*****************************************************************-->
-<div class="card m-4 item" style="width: 24rem;">
-	<img src="https://cdn.vox-cdn.com/thumbor/yw82cz9rDxGwk4Z8rHBzuHwagfE=/1400x1400/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/11557713/acastro_180321_1777_youtube_0003.0.jpg" class="card-img-top" alt="...">
-	<div class="d-flex card-date card-img-overlay w-25">
-		<p class="bodycopyb text-center card-text">25 Feb</p>
-	</div>
-	<div class="d-flex flex-column card-body mx-auto card-img-overlay">
-		<h3 class="h3o card-text text-center mx-auto">YouTube Workshop</h3>
-		<p class="bodycopyb card-text text-center">Excepteur sint occaecat cupidatat non proident, sunt in culpa</p>
-		<p class="bodycopyb card-text text-center"><a href="">See More</a></p>
-	</div>
-</div>
-</div>
-</div>
 
 
 

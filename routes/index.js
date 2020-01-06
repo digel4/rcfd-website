@@ -27,34 +27,38 @@ router.get("/enrol", (req, res) => {
 	res.render("enrol");
 })
 
+router.get("/register", (req, res) => {
+	res.render("register");
+})
+
 //handle sign up logic
 
-router.post("/register", (req, res) => {
-});
 
-// router.post("/register", (req, res) => {
-// 	console.log("ting1");
-// 	var newUser = new User({username:"admin",
-// 		  password:"hello"});
-// 	console.log(newUser);
-// 	User.register(newUser, newUser.password);
-// 	passport.authenticate("local");
-// 	res.redirect("/events");
-// });
+router.post("/register", (req, res) => {
+	console.log("ting1");
+	var newUser = new User({username:"admin",
+		  password:"hello"});
+	console.log(newUser);
+	User.register(newUser, newUser.password);
+	passport.authenticate("local");
+	res.redirect("/events");
+});
 
 //show login form
 
-
+router.get("/login", (req, res) => {
+	res.render("login");
+});
 
 //handling login logic
 
-// router.post("/admin", passport.authenticate("local", 
-// 	{
-// 		successRedirect: "/events",
-// 		failureRedirect: "/admin"
-// 	}), (req,res) => {
+router.post("/admin", passport.authenticate("local", 
+	{
+		successRedirect: "/admin",
+		failureRedirect: "/login"
+	}), (req,res) => {
 
-// });
+});
 
 //logout route
 

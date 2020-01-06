@@ -9,6 +9,7 @@ const express       = require ("express"),
 	  Event    = require("./models/event"),
 	  User          = require("./models/user"),
 	   seedDB        = require("./seeds");
+
 	  
 
 
@@ -19,7 +20,13 @@ const eventRoutes       = require("./routes/events"),
 
 
 
-mongoose.connect('mongodb://localhost:27017/rcf-v3', { useNewUrlParser: true });
+// mongoose.connect('mongodb://localhost:27017/rcf-v3', { useNewUrlParser: true });
+mongoose.connect('mongodb+srv://RCF-D:uDyXN7YTgxBxw06V@rcfdb-qf8zg.mongodb.net/test?retryWrites=true&w=majority', { useNewUrlParser: true, useCreateIndex: true }).then(() => {
+	console.log("connected to DB");
+}).catch(err => {
+	console.log('ERROR:', err.message)
+});
+
 app.use(body.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));

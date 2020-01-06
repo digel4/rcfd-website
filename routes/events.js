@@ -29,7 +29,7 @@ router.get("/pastevents", (req, res) => {
 	})
 });
 
-router.get("/admin", (req, res) => {
+router.get("/admin", middleware.isLoggedIn, (req, res) => {
 	res.render("admin/admin");
 });
 
