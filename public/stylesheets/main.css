@@ -3,6 +3,30 @@ body {
 	font-size: 16px;
 }
 
+.events-gallery {
+	display: flex;
+	flex-wrap:wrap;
+	Flex-basis: 400px;
+}
+
+/* Animations */
+
+div.item:hover img{
+  opacity:0.3;
+  filter: grayscale(100%);
+}
+
+div.item:hover p{
+  opacity:0.3;
+  filter: grayscale(100%);
+}
+
+div.item:hover h3{
+  opacity:0.3;
+  filter: grayscale(100%);
+}
+
+
 #email-subscribe {
 	background-color: #2E8B57;
 }
@@ -279,54 +303,57 @@ hr {
 #event-box {
 	background-color: #426F7E;
 	width: 100%;
-};
-
-@media only screen and (max-width: 2555px) {
-  /* For mobile phones: */
-	.mediumViewport {
-		display:none;
-	}
-	.largeViewport {
-		display:block;
-	}
-
-	.smallViewport {
-		display:none;
-	}
 }
 
-
-@media only screen and (max-width: 1900px) {
-  /* For mobile phones: */
-	.mediumViewport {
-		display:block;
-	}
-	.largeViewport {
-		display:none;
-	}
-
-	.smallViewport {
-		display:none
-	}
+#event-box div{
+	padding: 1.5rem;
+	display: flex;
 }
 
-
-
-@media only screen and (max-width: 600px) {
-  /* For mobile phones: */
-	.mediumViewport {
-		display:none;
-	}
-	.largeViewport {
-		display:none;
-	}
-	.smallViewport {
-		display:block;
-	}
+.event-box-excerpt{
+	display:flex;
+	flex-direction:column;
+	padding: 1.5rem;
+	width: 70%;
+	justify-content: space-between;
+	margin:1.5rem;
 }
 
+.event-box-title{
+	display:flex;
+	flex-direction:column;
+	width: 30%;
+	margin:auto;
+}
 
+@media only screen and (max-width: 640px) {
 
+	form div {
+		flex-direction:column;
+		color: red;
+		display: flex;
+	}
 
+	#event-box div {
+		flex-direction:column;
+		flex-wrap:wrap;
+	}
+	
+	.event-box-excerpt{
+		display:flex;
+		flex-direction:row;
+		padding: 1.5rem;
+		width: 70%;
+		justify-content: space-between;
+		margin:1.5rem;
+	}
 
+	.event-box-title{
+		display:flex;
+		flex-direction:row;
+		width: 30%;
+		margin:auto;
+	}
+
+}
 
