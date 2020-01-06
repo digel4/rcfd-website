@@ -314,7 +314,7 @@ hr {
 	width: 100%;
 }
 
-.event-box div{
+#event-box div{
 	padding: 1.5rem;
 	display: flex;
 }
