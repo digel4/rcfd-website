@@ -4,17 +4,23 @@
 
 <div class="container pt-4">
 	<div id="event-box">
-		<div>
-			<div class="event-box-title">
-				<h1 class="h1w"><%= event.name %></h1>
-				<a href="<%= event.eventURL %>" class="btn btn-primary h2w">Book Now</a>
-			</div>
-			<div class="event-box-excerpt">
-				<h3 class="h3w"><%= event.excerpt %></h3>
-			</div>
+		<div class="event-box-title">
+			<h1 class="h2w"><%= event.name %></h1>
+			<a href="<%= event.eventURL %>" class="btn btn-primary h3w event-box-btn-lg">Book Now</a>
+		</div>
+		<div class="event-box-btn-sm"><a href="<%= event.eventURL %>" class="btn btn-primary h3w">Book Now</a></div>
+		<div class="event-box-excerpt">
+			<h3 class="h3w"><%= event.excerpt %></h3>
 		</div>
 	</div>
 </div>
+
+
+
+
+
+
+
 
 <div class="container">
 	<div class="d-flex flex-row my-4">
@@ -41,7 +47,7 @@
 		<div class="d-flex flex-column w-70 m-4">
 			 <%- event.description %>
 
-			<div class="w-90 m-auto">
+			<!-- <div class="w-90 m-auto">
 				<div class="d-flex flex-column ">
 					<div class="d-flex flex-row p-3 justify-content-center" style="background-color: #2E8B57">
 						<h1 class="h2w"><strong>Attend This Event</strong></h1>
@@ -60,7 +66,7 @@
 							</div>
 						</div>
 					</div>
-				</div>
+				</div> -->
 			</div>
 		</div>
 	</div>
