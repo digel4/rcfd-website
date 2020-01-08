@@ -13,7 +13,10 @@ router.get("/events", (req, res) => {
 		if (err) {
 			console.log(err);
 		} else {
-			res.render("events/index", {events:allEvents})
+			var sortedArray = allEvents.sort((a, b) => {
+      			return new Date(a.longDate) - new Date(b.longDate);
+			});
+			res.render("events/index", {events:sortedArray});
 		}
 	})
 });
@@ -24,7 +27,10 @@ router.get("/pastevents", (req, res) => {
 		if (err) {
 			console.log(err);
 		} else {
-			res.render("events/pindex", {events:allEvents})
+			var sortedArray = allEvents.sort((a, b) => {
+      			return new Date(a.longDate) - new Date(b.longDate);
+			});
+			res.render("events/pindex", {events:sortedArray})
 		}
 	})
 });
@@ -45,7 +51,10 @@ router.get("/admin/events", (req, res) => {
 		if (err) {
 			console.log(err);
 		} else {
-	res.render("admin/events", {events:allEvents});
+			var sortedArray = allEvents.sort((a, b) => {
+      			return new Date(a.longDate) - new Date(b.longDate);
+			});
+	res.render("admin/events", {events:sortedArray});
 }})});
 
 //CREATE - add new event to DB

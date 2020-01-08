@@ -12,7 +12,10 @@ router.get("/", (req, res) => {
 		if (err) {
 			console.log(err);
 		} else {
-			res.render("landing", {events:allEvents})
+			var sortedArray = allEvents.sort((a, b) => {
+      			return new Date(a.longDate) - new Date(b.longDate);
+			});
+			res.render("landing", {events:sortedArray})
 		}
 	})
 });
