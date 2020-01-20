@@ -8,6 +8,18 @@ body {
   	height: auto;
 }
 
+#page-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+#content-wrap {
+  padding-bottom: 2.5rem;    /* Footer height */
+}
+
+#footer {
+
+}
 nav {
 	list-style: none;
 }
@@ -322,6 +334,8 @@ a:hover {
 
 #footer {
 	background-color: #707070;
+  	bottom: 0;
+  	width: 100%;
 }
 
 hr {

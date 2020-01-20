@@ -27,7 +27,7 @@ mongoose.connect('mongodb+srv://RCF-D:uDyXN7YTgxBxw06V@rcfdb-qf8zg.mongodb.net/t
 	console.log('ERROR:', err.message)
 });
 
-app.use(body.urlencoded({extended: true}));
+app.use(body.urlencoded({limit: '10mb',extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
 app.use(express.static(__dirname + "/jHtmlArea"));
@@ -64,8 +64,8 @@ app.use(experimentorRoutes);
 
 
 
-// app.listen(3000, () => {
-// 	console.log("server listening on port 3000");
-// });
+app.listen(3000, () => {
+	console.log("server listening on port 3000");
+});
 
-app.listen(process.env.PORT, process.env.IP);
+// app.listen(process.env.PORT, process.env.IP);
