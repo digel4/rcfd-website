@@ -2,7 +2,8 @@ const express = require("express"),
 	  router  = express.Router(),
 	  passport = require("passport"),
 	  User     = require("../models/user"),
-	  Event      = require("../models/event");
+	  Event      = require("../models/event"),
+	  request = require('superagent');
 
 //root route
 
@@ -26,15 +27,53 @@ router.get("/", (req, res) => {
 
 //Show register form
 
-router.get("/enrol", (req, res) => {
-	res.render("enrol");
-})
+// router.get("/enrol", (req, res) => {
+// 	res.render("enrol");
+// })
 
-router.get("/register", (req, res) => {
-	res.render("register");
-})
+// router.get("/register", (req, res) => {
+// 	res.render("register");
+// })
 
 //handle sign up logic
+
+
+//===============================================================================
+// Email Subscribe
+//==============================================================================
+const mailchimpInstance = "us8",
+	  listUniqueId      = "c1337e3581",
+	  mailchimpApiKey   ="e577a2d1e9b4d9d13ca14e87499f1b28";
+
+
+
+
+router.post('/subscribe', function (req, res) {
+    request
+        .post('https://' + mailchimpInstance + '.api.mailchimp.com/3.0/lists/' + listUniqueId + '/members/')
+        .set('Content-Type', 'application/json;charset=utf-8')
+        .set('Authorization', 'Basic ' + new Buffer('any:' + mailchimpApiKey ).toString('base64'))
+        .send({
+          'email_address': req.body.email,
+          'status': 'subscribed',
+          'merge_fields': {
+            'FNAME': req.body.firstName,
+            'LNAME': req.body.lastName
+          }
+        })
+            .end(function(err, response) {
+              if (response.status < 300 || (response.status === 400 && response.body.title === "Member Exists")) {
+				console.log("subscribe worked!");
+              	res.status(204).send();
+              } else {
+				console.log("subscribe worked!")
+              	res.status(204).send();
+              }
+          });
+});
+
+
+
 
 
 router.post("/register", (req, res) => {
@@ -50,7 +89,7 @@ router.post("/register", (req, res) => {
 //show login form
 
 router.get("/login", (req, res) => {
-	res.render("login");
+	res.render("admin/login");
 });
 
 //handling login logic

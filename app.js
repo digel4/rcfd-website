@@ -14,9 +14,11 @@ const express       = require ("express"),
 
 
 //requiring routes
-const eventRoutes       = require("./routes/events"),
+const eventRoutes            = require("./routes/events"),
 	  indexRoutes            = require("./routes/index"),
-	  experimentorRoutes     = require("./routes/experimentor");
+	  experimentorRoutes     = require("./routes/experimentor"),
+	  adminRoutes            = require("./routes/admin");
+	  
 
 
 
@@ -59,8 +61,10 @@ app.use( (req, res, next) => {
 });
 
 app.use(indexRoutes);
+app.use(adminRoutes);
 app.use(eventRoutes);
 app.use(experimentorRoutes);
+
 
 
 

@@ -1,12 +1,14 @@
-<%include ./partials/header%>
-<h1>
-	Admin Login
-</h1>
+<%include ../partials/header%>
 
-<form action="/admin" method="post">
-	<input type="text" name="username" placeholder="username">
-	<input type="passowrd" name="password" placeholder="password">
-	<input type="submit" value="Login!">
-</form>
+<div class="container login">
+	<h1>
+		Admin Login
+	</h1>
+	<form action="/admin" method="post">
+		<input type="text" name="username" placeholder="username">
+		<input type="password" name="password" placeholder="password">
+		<input type="submit" value="Login!">
+	</form>
+</div>
 
-<%include ./partials/footer%>
+<%include ../partials/footer%>
