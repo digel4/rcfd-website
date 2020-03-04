@@ -4,7 +4,7 @@
 	<div class="d-flex flex-column p-4">
 		<h1 class="h1w text-center mb-3">Stay in Touch!</h1>
 		<h2 class="h2w text-center mb-4">Always be in the know about upcoming RCF events and workshops by subscribing to our newsletter!</h2>
-		<form action="/subscribe" method="POST">
+		<form id="email-subscribe-form" action="/subscribe" method="POST">
 			<div class="row mb-2">
 				<div class="col">
 					<input type="text" class="form-control" name="firstName" placeholder="First Name">
@@ -16,7 +16,7 @@
 					<input type="email" class="form-control" name="email" placeholder="Email">
 				</div>
 				<div class="col flex-grow-0">
-					<button class="btn btn-primary">Subscribe</button>
+					<button id="submit" class="btn btn-primary">Subscribe</button>
 				</div>
 			</div>
 		</form>
@@ -66,7 +66,8 @@
 				</div>
 			</div>
 			<div class="d-flex justify-content-end" >
-				<img id="eu" src="/images/eu.svg">
+				<img class="bh-eu-me" src="/images/eu.svg">
+				<img class="bh-eu-me" src="/images/me-white.svg">
 			</div>
 		</div>
 	</div>
@@ -77,4 +78,5 @@
 
 
 </body>
+<script src="./footer.js"></script>
 </html>

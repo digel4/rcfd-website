@@ -188,11 +188,13 @@ nav {
 	list-style: none;
 }
 
-#eu{
-	width:50%;
+.bh-eu-me {
+	width:20%;
 	height: auto;
 	padding-bottom: 4px;
+	padding: 0.25rem;
 }
+
 
 #footer {
 	background-color: #707070;
