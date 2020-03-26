@@ -1,16 +1,14 @@
-const express       = require ("express"),
-	  app           = express(),
-	  body          = require("body-parser"),
-	  mongoose      = require("mongoose"),
-	  flash         = require("connect-flash"),
-	  passport      = require("passport"),
-	  LocalStrategy = require("passport-local"),
-	  methodOverride= require("method-override"),
-	  Event    = require("./models/event"),
-	  User          = require("./models/user"),
-	   seedDB        = require("./seeds");
-
-	  
+const express        = require ("express"),
+	  app            = express(),
+	  body           = require("body-parser"),
+	  mongoose       = require("mongoose"),
+	  flash          = require("connect-flash"),
+	  passport       = require("passport"),
+	  LocalStrategy  = require("passport-local"),
+	  methodOverride = require("method-override"),
+	  Event          = require("./models/event"),
+	  User           = require("./models/user"),
+	  seedDB         = require("./seeds");
 
 
 //requiring routes
@@ -35,7 +33,7 @@ app.use(express.static(__dirname + "/public"));
 app.use(express.static(__dirname + "/jHtmlArea"));
 app.use(methodOverride("_method"));
 app.use(flash());
-// seedDB();
+
 
 //==============================
 // PASSPORT CONFIGURATION

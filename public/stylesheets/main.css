@@ -13,6 +13,15 @@ header {
 	z-index:10;
 }
 
+.landing-header {
+	display:flex;
+}
+
+.banner-logos {
+	display:flex;
+	flex-wrap: wrap;
+}
+
 @keyframes fadein {
 	100% {
 	opacity: 1;
@@ -43,6 +52,10 @@ header nav li {
 @media only screen and (max-width: 400px) {
 	body header .h3w {
 		font-size: 14px;
+	}
+	
+	.banner-logos {
+		display:flex;
 	}
 }
 
