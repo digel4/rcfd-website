@@ -21,6 +21,8 @@ router.get("/events", (req, res) => {
 	})
 });
 
+
+
 router.get("/pastevents", (req, res) => {
 	// Get all events from DB
 	Event.find({longDate: {$lt: new Date()}}, (err, allEvents) => {

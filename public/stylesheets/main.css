@@ -1,3 +1,108 @@
+
+/* COACHES */
+
+#coachesPageTitle {
+	padding-top: 2em;
+	padding-bottom: 2em;
+}
+
+.coachImage {
+	width: 25%;
+}
+
+.coachImage img {
+	width: 100%;
+}
+
+.coachTitle {
+	padding-bottom: 1em;
+	
+}
+
+.coachbio {
+	
+}
+
+.coachText {
+	width: 70%;
+	
+}
+
+#coach-layout {
+	display: flex;
+	flex-wrap: wrap;
+
+}
+
+.coachSection {
+	display: flex;
+	padding-bottom: 2em;
+	justify-content: space-between;
+}
+
+@media only screen and (max-width: 1000px) {
+	#coach-layout {
+	}
+
+	.coachSection {
+	flex-direction: column;
+	width: 100%;
+	}
+	
+	.coachImage {
+	width: 100%;
+	}
+	
+	.coachText {
+	width: 100%;
+	
+	}
+
+	.coachImage img {
+	}
+}
+
+
+/* RESOURCES */
+
+
+
+#resources {
+	display: flex;
+	flex-direction: column;
+	padding-top: 2em;
+}
+
+#resourcesDescription {
+	padding-bottom: 2em;
+}
+
+.youtubeSection {
+	display: flex;
+	flex-direction: column;
+	padding-bottom: 10em;
+}
+
+.youtubeVideo {
+	width: 100%;
+	text-align: center;
+}
+.youtubeVideo iframe {
+	width: 100%; 
+	height: 45em;
+}
+
+.youtubeSectionTitle {
+	text-align: center;
+	padding-top: 2em;
+}
+
+.youtubeSectionDescription {
+	text-align: center;
+	padding-top: 2em;
+}
+
+
 /* ====================LANDING-HEADER================ */
 
 header {
@@ -429,6 +534,7 @@ nav {
 
 
 
+/* RESOURCES */
 
 
 

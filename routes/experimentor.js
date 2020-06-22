@@ -7,18 +7,18 @@ const express    = require("express"),
 //===================================
 //INDEX -show all Experimentors
 //===================================
-router.get("/", (req, res) => {
-	// Get all events from DB
-	//Experimentor.find({}, (err, allExperimentors) => {
-	//	if (err) {
-	//		console.log(err);
-	//	} else {
-			res.render("experimentor/index") //,{experimentors:allExperimentors}
-		}
-//	})
-//}
-);
+// router.get("/", (req, res) => {
+// 	// Get all events from DB
+// 	//Experimentor.find({}, (err, allExperimentors) => {
+// 	//	if (err) {
+// 	//		console.log(err);
+// 	//	} else {
+// 			res.render("experimentor/index") //,{experimentors:allExperimentors}
+// 		}
+// //	})
+// //}
+// );
 
 
 
-module.exports = router;
+// module.exports = router;

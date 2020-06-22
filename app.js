@@ -15,7 +15,9 @@ const express        = require ("express"),
 const eventRoutes            = require("./routes/events"),
 	  indexRoutes            = require("./routes/index"),
 	  experimentorRoutes     = require("./routes/experimentor"),
-	  adminRoutes            = require("./routes/admin");
+	  adminRoutes            = require("./routes/admin"),
+	  coachesRoutes          = require("./routes/coaches"),
+	  resourcesRoutes        = require("./routes/resources");
 	  
 
 
@@ -58,10 +60,16 @@ app.use( (req, res, next) => {
 	next();
 });
 
+
 app.use(indexRoutes);
 app.use(adminRoutes);
+app.use(coachesRoutes);
+app.use(resourcesRoutes);
+// I need to recode the EventsRoutes since all events are currently /:id which means any routes file after the eventRoutes here will not load properly since they will be /pageName which the app thinks is an event ID
 app.use(eventRoutes);
-app.use(experimentorRoutes);
+
+// app.use(experimentorRoutes);
+
 
 
 
