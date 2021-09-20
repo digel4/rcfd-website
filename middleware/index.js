@@ -1,7 +1,4 @@
-const Campground  = require("../models/event"),
-	  Experimentor     = require("../models/experimentor");
-
-// all the middleware goes here
+// All the middleware goes here
 
 const middlewareObj = {};
 
@@ -34,6 +31,14 @@ middlewareObj.isLoggedIn = (req, res, next) => {
 	} else {
 		req.flash("error", "You need to be logged in to do that") //this has to be placed before the redirect for some reason
 		res.redirect("/login");
+}};
+
+middlewareObj.passwordCheck = (req, res, next) => {
+	if(req.isAuthenticated()) {
+		return next();
+	} else {
+		req.flash("error", "Password incorrect. if you're enrolled on the Big House programme please email RCF@nae.org.uk for the password") //this has to be placed before the redirect for some reason
+		res.redirect("/passwordCheck");
 }};
 
 module.exports = middlewareObj

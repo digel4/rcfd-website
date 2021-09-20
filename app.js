@@ -8,6 +8,7 @@ const express        = require ("express"),
 	  methodOverride = require("method-override"),
 	  Event          = require("./models/event"),
 	  User           = require("./models/user"),
+	  Participant    = require("./models/participant"),
 	  seedDB         = require("./seeds");
 
 
@@ -17,7 +18,8 @@ const eventRoutes            = require("./routes/events"),
 	  experimentorRoutes     = require("./routes/experimentor"),
 	  adminRoutes            = require("./routes/admin"),
 	  coachesRoutes          = require("./routes/coaches"),
-	  resourcesRoutes        = require("./routes/resources");
+	  resourcesRoutes        = require("./routes/resources"),
+	  designTrustRoutes      = require("./routes/designTrust");
 	  
 
 
@@ -48,9 +50,15 @@ app.use(require("express-session")({
 }));
 
 app.use(passport.initialize());
+
 app.use(passport.session());
-passport.use(new LocalStrategy(User.authenticate())); //this coresponds to the middleware used later on on login
+
+// passport.use(new LocalStrategy(User.authenticate())); //this coresponds to the middleware used later on on login
+
+passport.use('local', new LocalStrategy(User.authenticate()));
+
 passport.serializeUser(User.serializeUser());
+
 passport.deserializeUser(User.deserializeUser());
 
 app.use( (req, res, next) => {
@@ -61,10 +69,13 @@ app.use( (req, res, next) => {
 });
 
 
+// Routes
+
 app.use(indexRoutes);
 app.use(adminRoutes);
 app.use(coachesRoutes);
 app.use(resourcesRoutes);
+app.use(designTrustRoutes);
 // I need to recode the EventsRoutes since all events are currently /:id which means any routes file after the eventRoutes here will not load properly since they will be /pageName which the app thinks is an event ID
 app.use(eventRoutes);
 
@@ -74,8 +85,8 @@ app.use(eventRoutes);
 
 
 
-app.listen(3000, () => {
-	console.log("server listening on port 3000");
-});
+// app.listen(3000, () => {
+// 	console.log("server listening on port 3000");
+// });
 
-// app.listen(process.env.PORT, process.env.IP);
+app.listen(process.env.PORT, process.env.IP);

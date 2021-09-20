@@ -2,6 +2,7 @@ const express = require("express"),
 	  router  = express.Router(),
 	  passport = require("passport"),
 	  User     = require("../models/user"),
+	  Participant     = require("../models/participant"),
 	  Event      = require("../models/event"),
 	  request = require('superagent');
 
@@ -78,12 +79,31 @@ router.post('/subscribe', function (req, res) {
 
 router.post("/register", (req, res) => {
 	console.log("ting1");
-	var newUser = new User({username:"admin",
-		  password:"hello"});
+	var newUser = new User({
+		  username:"participant",
+		  password:"DesignTrustBigHouseCollab2020"});
 	console.log(newUser);
-	User.register(newUser, newUser.password);
+	User.register(newUser, newUser.password)
 	passport.authenticate("local");
 	res.redirect("/events");
+});
+
+router.post("/participantRegister", (req, res) => {
+	console.log("ting2");
+	let newParticipant = new Participant({
+		username:"participant2",
+		password:"DesignTrustBigHouseCollab2020"});
+	console.log(newParticipant);
+	Participant.register(newParticipant, newParticipant.password, function(err, user) {
+		if(err) {
+			console.log(err);
+			res.redirect("/");
+		} else {
+			passport.authenticate("local")(req, res, function() {
+			  console.log("success");
+			});
+		}
+	});
 });
 
 //show login form
@@ -101,6 +121,22 @@ router.post("/admin", passport.authenticate("local",
 	}), (req,res) => {
 
 });
+
+// show password form
+
+router.get("/passwordCheck", (req, res) => {
+	res.render("admin/passwordCheck");
+});
+
+// handling password logic
+
+router.post("/passwordCheck", passport.authenticate("local", 
+	{
+		successRedirect: "/design-trust-resources",
+		failureRedirect: "/passwordCheck"
+	}), (req,res) => {
+});
+
 
 //logout route
 
