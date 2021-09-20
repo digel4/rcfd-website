@@ -25,7 +25,7 @@ const eventRoutes            = require("./routes/events"),
 
 
 // mongoose.connect('mongodb://localhost:27017/rcf-v3', { useNewUrlParser: true });
-mongoose.connect('mongodb+srv://cluster0.e4jqp.mongodb.net/rcf-d', { useNewUrlParser: true, useCreateIndex: true }).then(() => {
+mongoose.connect('mongodb+srv://admin:hello@cluster0.e4jqp.mongodb.net/rcf-d?retryWrites=true&w=majority', { useNewUrlParser: true, useCreateIndex: true }).then(() => {
 	console.log("connected to DB");
 }).catch(err => {
 	console.log('ERROR triggered:', err.message)
