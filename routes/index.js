@@ -83,7 +83,16 @@ router.post("/register", (req, res) => {
 		  username:"participant",
 		  password:"DesignTrustBigHouseCollab2020"});
 	console.log(newUser);
-	User.register(newUser, newUser.password)
+	User.register(newUser, newUser.password, function(err, user) {
+		if(err) {
+			console.log(err);
+			res.redirect("/");
+		} else {
+			passport.authenticate("local")(req, res, function() {
+			  console.log("success");
+			});
+		}
+	});
 	passport.authenticate("local");
 	res.redirect("/events");
 });
