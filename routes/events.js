@@ -134,9 +134,24 @@ router.get("/:id/edit", (req,res) => {
 router.put("/:id", (req,res) => {
 	//find and update the correct campround
 	const shortOption= {day: '2-digit', month: 'short'};
+	
 	 Event.findByIdAndUpdate(req.params.id, req.body.event, (err, updatedEvent) => {
 		 updatedEvent.shortDate = new Date(req.body.date).toLocaleString('en-GB', shortOption); 
 		 updatedEvent.longDate = req.body.date;
+		 console.log(`event body description is ${req.body.event.description}`)
+		 updatedEvent.name = req.body.event.name;
+		 updatedEvent.image = req.body.event.image;
+		 updatedEvent.description = req.body.event.description;
+		 updatedEvent.endTime = req.body.event.endTime;
+		 updatedEvent.startTime = req.body.event.startTime;
+		 updatedEvent.businessName = req.body.event.businessName;
+		 updatedEvent.streetNumber = req.body.event.streetNumber;
+		 updatedEvent.streetName = req.body.event.streetName;
+		 updatedEvent.city = req.body.event.city;
+		 updatedEvent.postcode = req.body.event.postcode;
+		 updatedEvent.eventURL = req.body.event.eventURL;
+		 updatedEvent.excerpt = req.body.event.excerpt;
+		 console.log(`Updated event body description is ${updatedEvent.description}`)
 		 updatedEvent.save();
 		if(err) {
 			res.redirect("/events");
@@ -145,6 +160,19 @@ router.put("/:id", (req,res) => {
 		}
 	});
 });
+// updatedEvent.name = req.body.name;
+// updatedEvent.image = req.body.event.image;
+// updatedEvent.description = req.body.event.description;
+// updatedEvent.endTime = req.body.event.endTime;
+// updatedEvent.startTime = req.body.event.startTime;
+// updatedEvent.businessName = req.body.event.businessName;
+// updatedEvent.streetNumber = req.body.event.streetNumber;
+// updatedEvent.streetName = req.body.event.streetName;
+// updatedEvent.city = req.body.event.city;
+// updatedEvent.postcode = req.body.event.postcode;
+// updatedEvent.eventURL = req.body.event.eventURL;
+// updatedEvent.excerpt = req.body.event.excerpt;
+
 
 // DESTROY EVENT ROUTE
 

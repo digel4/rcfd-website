@@ -7,7 +7,7 @@
 <p class="test">if this is blue then the css is connected</p>
 
 <div class="container row" style="width:80%; margin:auto;">
-	<form action="/admin/new" method="POST">
+	<form id="form" action="/admin/new" method="POST">
 		<h1>	
 			Create a new event
 		</h1>
@@ -64,7 +64,7 @@
 		</h1>
 		<div class="form-group">
 			<label>Event Description</label>
-			<textarea rows="10" cols="100" class="form-control" type="text" name="description" placeholder="Event Description"></textarea>
+			<textarea id="editor" rows="10" cols="100" class="form-control" type="text" name="description" placeholder="Event Description"></textarea>
 		</div>
 		<div class="form-group">
 			<label>Event Excerpt</label>
@@ -78,5 +78,17 @@
 	
 </div>
 		
-<script> $('textarea').htmlarea();</script>
+<script> 
+const editor = SUNEDITOR.create((document.getElementById('editor')),{
+    // All of the plugins are loaded in the "window.SUNEDITOR" object in dist/suneditor.min.js file
+    // Insert options
+    // Language global object (default: en)
+    lang: SUNEDITOR_LANG['en']
+	});
+
+
+document.getElementById("form").addEventListener("submit", function() {
+	editor.save()
+});
+</script>
 <% include ../partials/footer %>
