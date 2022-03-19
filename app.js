@@ -85,8 +85,8 @@ app.use(eventRoutes);
 
 
 
-// app.listen(3000, () => {
-// 	console.log("server listening on port 3000");
-// });
+app.listen(3000, () => {
+	console.log("server listening on port 3000");
+});
 
-app.listen(process.env.PORT, process.env.IP);
+// app.listen(process.env.PORT, process.env.IP);
