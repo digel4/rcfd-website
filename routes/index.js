@@ -9,88 +9,62 @@ const express = require("express"),
 
 
 
-let transport = nodemailer.createTransport({
-	host: "smtp.mailtrap.io",
-	port: 2525,
-	// secure: true,
+let sendEmailWithNodemailer = (req, res, emailData) => {
+const transporter = nodemailer.createTransport({
+	host: "smtp.gmail.com",
+	port: 587,
+	secure: false,
+	requireTLS: true,
 	auth: {
-		user: "myusername",
-		pass: "mypassword"
+	user: "ofoxavondale@gmail.com", // MAKE SURE THIS EMAIL IS YOUR GMAIL FOR WHICH YOU GENERATED APP PASSWORD
+	pass: "psbwzwjhgczpfxml", // MAKE SURE THIS PASSWORD IS YOUR GMAIL APP PASSWORD WHICH YOU GENERATED EARLIER
 	},
-	debug: true,
-	logger: true
+	tls: {
+	ciphers: "SSLv3",
+	},
 });
 
-let scrapeEmailMessage = {
-	//from: 'myemail@gmail.com',
-	to: 'oliver@nae.org.uk',
-	subject: 'Hello World',
-	text: 'hello world'
+return transporter
+	.sendMail(emailData)
+	.then((info) => {
+	console.log(`Message sent: ${info.response}`);
+	return res.json({
+		success: true,
+	});
+	})
+	.catch((err) => console.log(`Problem sending email: ${err}`));
 };
 
-// let mailTransporter = nodemailer.createTransport(transport);
-
-// mailTransporter.sendMail(scrapeEmailMessage, function(err, data) {
-// 	if(err) {
-// 		console.log(err);
-// 	} else {
-// 		console.log('Email sent successfully');
-// 	}
-// });
-
-
-
-
-
-	  
-// Create the transporter with the required configuration for Outlook
-// change the user and pass !
-// let transporter = nodemailer.createTransport({
-//     host: "smtp-mail.outlook.com", // hostname
-//     secureConnection: false, // TLS requires secureConnection to be false
-//     port: 2525, // port for secure SMTP
-//     tls: {
-//        ciphers:'SSLv3'
-//     },
-//     auth: {
-//         user: 'rcfdCodingApplications@outlook.com',
-//         pass: 'LousySmarchWeather'
-//     }
-// });
-
-// // setup e-mail data, even with unicode symbols
-// let mailOptions = {
-//     from: 'rcfdCodingApplications@outlook.com', // sender address (who sends)
-//     to: 'oliver@nae.org.uk', // list of receivers (who receives)
-//     subject: 'Hello ', // Subject line
-//     text: 'Hello world ', // plaintext body
-//     html: '<b>Hello world </b><br> This is the first email sent with Nodemailer in Node.js' // html body
-// };
-
-// send mail with defined transport object
-// transporter.sendMail(mailOptions, function(error, info){
-//     if(error){
-//         return console.log(error);
-//     }
-
-//     console.log('Message sent: ' + info.response);
-// });
-
+const emailData = {
+	from: "ofoxavondale@gmail.com", // MAKE SURE THIS EMAIL IS YOUR GMAIL FOR WHICH YOU GENERATED APP PASSWORD
+	to: "oliver@nae.org.uk", // WHO SHOULD BE RECEIVING THIS EMAIL? IT SHOULD BE YOUR GMAIL
+	subject: "Website Contact Form",
+	text: `Email received from contact from \n Sender name: hello \n Sender email: asdasdasdas \n Sender message: asdasdasd`,
+	html: `
+		<h4>Email received from contact form:</h4>
+		<p>Sender name: hello</p>
+		<p>Sender email: asdasd</p>
+		<p>Sender message: adasdasdasdasd</p>
+		<hr />
+		<p>This email may contain sensitive information</p>
+		<p>https://onemancode.com</p>
+	`,
+};
 
 //root route
 
 router.get("/", (req, res) => {
 // Get all events from DB
-	Event.find({longDate: {$gte: new Date()}}, (err, allEvents) => {
-		if (err) {
-			console.log(err);
-		} else {
-			var sortedArray = allEvents.sort((a, b) => {
-      			return new Date(a.longDate) - new Date(b.longDate);
-			});
-			res.render("landing", {events:sortedArray})
-		}
-	})
+Event.find({longDate: {$gte: new Date()}}, (err, allEvents) => {
+	if (err) {
+		console.log(err);
+	} else {
+		var sortedArray = allEvents.sort((a, b) => {
+				return new Date(a.longDate) - new Date(b.longDate);
+		});
+		res.render("landing", {events:sortedArray})
+	}
+})
 });
 
 router.get("/coding-workshop-application", (req, res) => {
@@ -101,25 +75,12 @@ router.post("/coding-workshop-application", (req, res) => {
 	console.log("HELLO FROM THE POST REQUEST ////////////////////////////////////////////")
 	console.log(req.body)
 
-	transport.sendMail(scrapeEmailMessage, function(err, data) {
-		if(err) {
-			console.log(err);
-		} else {
-			console.log('Email sent successfully');
-		}
-	});
+	sendEmailWithNodemailer(req, res, emailData);
 
-	// transporter.sendMail(mailOptions, function(error, info){
-	// 	if(error){
-	// 		return console.log(error);
-	// 	}
-	
-	// 	console.log('Message sent: ' + info.response);
-	// });
 	res.send("success")
-	
-});
 
+});
+	
 //================================================
 //Auth Routes
 //================================================
