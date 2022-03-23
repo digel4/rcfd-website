@@ -1,97 +1,99 @@
 <%include ./partials/header%>
 
-<div>Hello from Application page!</div>
+<div class="container" >
+	<h1>RCFD Live Coading Workshop Series Application</h2>
+		<h3>Application deadline is Friday 29th April</h3>
 
 
-<div>
-    <form action="/coding-workshop-application" method="post">
-        <div class="form-group">
-          <label for="exampleInputEmail1">Email address</label>
-          <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-        </div>
-        <div class="form-group">
-          <label for="exampleInputPassword1">Password</label>
-          <input type="password" class="form-control" id="exampleInputPassword1" name="password">
-        </div>
-        <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input type="text" class="form-control" id="exampleInputPassword1" name="text">
-          </div>
-        <div class="form-group form-check">
-          <input type="checkbox" class="form-check-input" id="exampleCheck1">
-          <label class="form-check-label" for="exampleCheck1">Check me out</label>
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </form>
 
-      <!-- <form id="form" action="/coding-workshop-application" method="POST">
-		<h1>	
-			Create a new event
-		</h1>
-		<div class="form-group">
-			<label>Name: </label>
-			<input class="form-control" type="text" name="name" placeholder="name">
-		</div>
-		<div class="form-group">
-			<label>Date</label>
-			<input class="form-control" type="date" name="date" placeholder="date">
-		</div>
-		<div class="form-group">
-			<label>Start Time:</label>
-			<input class="form-control" type="time" name="startTime" placeholder="Start Time">
-		</div>
-		<div class="form-group">
-			<label>End Time:</label>
-			<input class="form-control" type="time" name="endTime" placeholder="End Time">
-		</div>
-		<div class="form-group">
-			<label>Eventbrite Link:</label>
-			<input class="form-control" type="text" name="eventURL" placeholder="Event URL">
-		</div>
-		<div class="form-group">
-			<label>Event Image URL</label>
-			<input class="form-control" type="text" name="image" placeholder="image url">
-		</div>
-		<h1>
-			address
-		</h1>
-		<div class="form-group">
-			<label>Business Name:</label>
-			<input class="form-control" type="text" name="businessName" placeholder="Business Name">
-		</div>
-		<div class="form-group">
-			<label>Street Number:</label>
-			<input class="form-control" type="text" name="streetNumber" placeholder="Street Number">
-		</div>
-		<div class="form-group">
-			<label>Street Name:</label>
-			<input class="form-control" type="text" name="streetName" placeholder="Street Name">
-		</div>
-		<div class="form-group">
-			<label>City:</label>
-			<input class="form-control" type="text" name="city" placeholder="City">
-		</div>
-		<div class="form-group">
-			<label>Postcode:</label>
-			<input class="form-control" type="text" name="postcode" placeholder="Postcode">
-		</div>
+	<div>
+		<form action="/coding-workshop-application" method="post">
 
-		<h1>
-			Event Descriptions
-		</h1>
-		<div class="form-group">
-			<label>Event Description</label>
-			<textarea id="editor" rows="10" cols="100" class="form-control" type="text" name="description" placeholder="Event Description"></textarea>
-		</div>
-		<div class="form-group">
-			<label>Event Excerpt</label>
-			<input class="form-control" type="text" maxlength="162" name="excerpt" placeholder="excerpt">
-		</div>
-		<button type="submit" class="btn btn-primary btn-block">
-		Submit!
-		</button>
-		<a href="/events">Back to Events</a>
-	</form> -->
+			<!-- Name -->
+			<div class="form-group">
+				<label for="exampleInputPassword1">Full Name</label>
+				<input type="text" class="form-control" id="exampleInputPassword1" name="fullName" required>
+			</div>
+
+			<!-- Email -->
+			<div class="form-group">
+			<label for="exampleInputEmail1">Email Address</label>
+			<input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required>
+			<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+			</div>
+
+			<!-- Personal Statement -->
+			<div class="form-group">
+			<label for="exampleInputPassword1">Your Creative Practice</label>
+			<br>
+			<textarea class="form-control" name="personalStatement" rows="10" cols="200" required></textarea>
+			<small id="emailHelp" class="form-text text-muted">Please tell us about your creative practice and what you would like to explore on this workshop series. </small>
+			</div>
+
+			<!-- Eligability checkboxes -->
+
+			<!-- Over 18 -->
+			<h2>Eligability</h2>
+			<div class="form-group">
+				
+				<label class="form-check-label" for="exampleInputPassword1">Are you over the age of 18?</label>
+				<input type="checkbox" name="over18" required>
+				
+			</div>
+
+			<!-- Location -->
+			<div class="form-group">
+				<label class="form-check-label" for="exampleInputPassword1">Do you live in Nottinghamshire or Derbyshire?</label>
+				<input type="checkbox" name="location" required>
+			</div>
+
+			<!-- Big House Registered -->
+			<div class="form-group">
+				<label class="form-check-label" for="exampleInputPassword1">Have you registered for the Big House programme?</label>
+				<input type="checkbox" name="registeredBH">
+			</div>
+
+			<!-- Dates -->
+			<h3>Are you available on the following days and times for the coding workshops?</h3>
+			<div class="form-group">
+				<label class="form-check-label" for="exampleInputPassword1">Tuesday 7th June - 12:00 – 15:00 </label>
+				<input type="checkbox" required>
+			</div>
+
+			<div class="form-group">
+				<label class="form-check-label" for="exampleInputPassword1">Tuesday 14th June - 12:00 - 15:00 </label>
+				<input type="checkbox" required>
+			</div>
+
+			<div class="form-group">
+				<label class="form-check-label" for="exampleInputPassword1">Tuesday 21st June - 12:00 - 15:00 </label>
+				<input type="checkbox" required>
+			</div>
+
+			<div class="form-group">
+				<label class="form-check-label" for="exampleInputPassword1">Tuesday 28th, June - 12:00 - 15:00 </label>
+				<input type="checkbox" required>
+			</div>
+
+			<div class="form-group">
+				<label class="form-check-label" for="exampleInputPassword1">Tuesday 12th July - 12:00 – 15:00 </label>
+				<input type="checkbox" required>
+			</div>
+
+			<div class="form-group">
+				<label class="form-check-label" for="exampleInputPassword1">Tuesday 19th July 12:00 – 15:00 </label>
+				<input type="checkbox" required>
+			</div>
+
+
+
+
+
+			<button type="submit" class="btn btn-primary">Submit</button>
+		</form>
+
+		<div>Please contact oliver@nae.org.uk if you have any questions about the application form!</div>
+
+	</div>
 </div>
 <% include partials/footer %>

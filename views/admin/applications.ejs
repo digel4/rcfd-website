@@ -1,0 +1,39 @@
+<%include ../partials/header%>
+fullName: String,
+email: String,
+personalStatement: String,
+over18: Boolean,
+location: Boolean,
+registeredBH: Boolean,
+<div class="container">
+	<h1 class="h1b my-4"><strong>Coding Applications</strong></h1>
+	<h2 class="h2b">
+		Applications
+	</h2>
+	<div class="row">
+		<% 
+		 applications.forEach((application) => {
+		%>
+		<div class="container">
+			<h1 class="h1b my-4"><strong>Coding Applications</strong></h1>
+			<h2 class="h2b">
+				Applications
+			</h2>
+			<!-- <div class="row"> -->
+				<h2><%= application.fullName %></h2>
+				<div>Full Name: <%= application.fullName %></div>
+				<div>Email Address: <%= application.email %></div>
+				<div>Personal Statement: <%= application.personalStatement %></div>
+				<div>BH Registered: <%= application.registeredBH %></div></div>
+				<form class="delete-form" action="/" method="POST">
+					<button class="btn btn-danger">
+						Delete
+					</button>
+				</form>
+			<!-- </div> -->
+		</div>
+		<% }); %>
+	</div>
+</div>
+
+<%include ../partials/footer%>

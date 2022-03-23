@@ -4,52 +4,54 @@ const express = require("express"),
 	  User     = require("../models/user"),
 	  Participant     = require("../models/participant"),
 	  Event      = require("../models/event"),
+	  Application      = require("../models/application"),
+	  middleware = require("../middleware"),
 	  request = require('superagent'),
 	  nodemailer = require('nodemailer');
 
 
 
-let sendEmailWithNodemailer = (req, res, emailData) => {
-const transporter = nodemailer.createTransport({
-	host: "smtp.gmail.com",
-	port: 587,
-	secure: false,
-	requireTLS: true,
-	auth: {
-	user: "ofoxavondale@gmail.com", // MAKE SURE THIS EMAIL IS YOUR GMAIL FOR WHICH YOU GENERATED APP PASSWORD
-	pass: "psbwzwjhgczpfxml", // MAKE SURE THIS PASSWORD IS YOUR GMAIL APP PASSWORD WHICH YOU GENERATED EARLIER
-	},
-	tls: {
-	ciphers: "SSLv3",
-	},
-});
+// let sendEmailWithNodemailer = (req, res, emailData) => {
+// const transporter = nodemailer.createTransport({
+// 	host: "smtp.gmail.com",
+// 	port: 587,
+// 	secure: false,
+// 	requireTLS: true,
+// 	auth: {
+// 	user: "ofoxavondale@gmail.com", // MAKE SURE THIS EMAIL IS YOUR GMAIL FOR WHICH YOU GENERATED APP PASSWORD
+// 	pass: "psbwzwjhgczpfxml", // MAKE SURE THIS PASSWORD IS YOUR GMAIL APP PASSWORD WHICH YOU GENERATED EARLIER
+// 	},
+// 	tls: {
+// 	ciphers: "SSLv3",
+// 	},
+// });
 
-return transporter
-	.sendMail(emailData)
-	.then((info) => {
-	console.log(`Message sent: ${info.response}`);
-	return res.json({
-		success: true,
-	});
-	})
-	.catch((err) => console.log(`Problem sending email: ${err}`));
-};
+// return transporter
+// 	.sendMail(emailData)
+// 	.then((info) => {
+// 	console.log(`Message sent: ${info.response}`);
+// 	return res.json({
+// 		success: true,
+// 	});
+// 	})
+// 	.catch((err) => console.log(`Problem sending email: ${err}`));
+// };
 
-const emailData = {
-	from: "ofoxavondale@gmail.com", // MAKE SURE THIS EMAIL IS YOUR GMAIL FOR WHICH YOU GENERATED APP PASSWORD
-	to: "oliver@nae.org.uk", // WHO SHOULD BE RECEIVING THIS EMAIL? IT SHOULD BE YOUR GMAIL
-	subject: "Website Contact Form",
-	text: `Email received from contact from \n Sender name: hello \n Sender email: asdasdasdas \n Sender message: asdasdasd`,
-	html: `
-		<h4>Email received from contact form:</h4>
-		<p>Sender name: hello</p>
-		<p>Sender email: asdasd</p>
-		<p>Sender message: adasdasdasdasd</p>
-		<hr />
-		<p>This email may contain sensitive information</p>
-		<p>https://onemancode.com</p>
-	`,
-};
+// const emailData = {
+// 	from: "ofoxavondale@gmail.com", // MAKE SURE THIS EMAIL IS YOUR GMAIL FOR WHICH YOU GENERATED APP PASSWORD
+// 	to: "oliver@nae.org.uk", // WHO SHOULD BE RECEIVING THIS EMAIL? IT SHOULD BE YOUR GMAIL
+// 	subject: "Website Contact Form",
+// 	text: `Email received from contact from \n Sender name: hello \n Sender email: asdasdasdas \n Sender message: asdasdasd`,
+// 	html: `
+// 		<h4>Email received from contact form:</h4>
+// 		<p>Sender name: hello</p>
+// 		<p>Sender email: asdasd</p>
+// 		<p>Sender message: adasdasdasdasd</p>
+// 		<hr />
+// 		<p>This email may contain sensitive information</p>
+// 		<p>https://onemancode.com</p>
+// 	`,
+// };
 
 //root route
 
@@ -71,14 +73,58 @@ router.get("/coding-workshop-application", (req, res) => {
 	res.render("codeWorkshopApplication")
 });
 
+// router.post("/coding-workshop-application", (req, res) => {
+// 	console.log("HELLO FROM THE POST REQUEST ////////////////////////////////////////////")
+// 	console.log(req.body)
+
+// 	// sendEmailWithNodemailer(req, res, emailData);
+
+// 	res.send("success")
+
+// });
+
 router.post("/coding-workshop-application", (req, res) => {
-	console.log("HELLO FROM THE POST REQUEST ////////////////////////////////////////////")
-	console.log(req.body)
+	//Create a new event and save to DB
 
-	sendEmailWithNodemailer(req, res, emailData);
+	const fullName=  req.body.fullName;
+    const email = req.body.email;
+    const personalStatement = req.body.personalStatement;
+	const over18 = (req.body.over18 === "on") ? (true) : (false)
+	const location = (req.body.location === "on") ? (true) : (false)
+	const registeredBH = (req.body.registeredBH === "on") ? (true) : (false)
+	const newApplication = {
+		fullName,
+		email,
+		personalStatement,
+		over18,
+		location,
+		registeredBH
+	}
 
-	res.send("success")
+	console.log(newApplication)
 
+
+	// Application.create(newApplication, (err, newlyCreated) => {
+	// 	if (err) {
+	// 		console.log(err)
+	// 	} else {
+	// 		//redirect back to events page
+	// 		console.log(newlyCreated);
+	// 		res.send("success");
+	// 		console.log("added to database");
+	// 	}
+	// })
+});
+
+router.get("/applications", middleware.isLoggedIn, (req, res) => {
+	// Get all events from DB
+	Application.find({ }, (err, applications) => {
+		if (err) {
+			console.log(err);
+		} else {
+			res.render("admin/applications", {applications});
+		}
+	})
 });
 	
 //================================================
