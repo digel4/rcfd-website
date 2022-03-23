@@ -104,16 +104,16 @@ router.post("/coding-workshop-application", (req, res) => {
 	console.log(newApplication)
 
 
-	// Application.create(newApplication, (err, newlyCreated) => {
-	// 	if (err) {
-	// 		console.log(err)
-	// 	} else {
-	// 		//redirect back to events page
-	// 		console.log(newlyCreated);
-	// 		res.send("success");
-	// 		console.log("added to database");
-	// 	}
-	// })
+	Application.create(newApplication, (err, newlyCreated) => {
+		if (err) {
+			console.log(err)
+		} else {
+			//redirect back to events page
+			console.log(newlyCreated);
+			res.send("Your application has been sent! Please contact Oliver@nae.org.uk if you have any further questions!");
+			console.log("added to database");
+		}
+	})
 });
 
 router.get("/applications", middleware.isLoggedIn, (req, res) => {
