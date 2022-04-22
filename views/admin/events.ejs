@@ -19,8 +19,8 @@
 					<div class="d-flex flex-column card-body mx-auto card-img-overlay">
 						<h3 class="h3o card-text mx-auto text-center"><%= events.name %></h3>
 						<p class="bodycopyb card-text text-center"><%= events.excerpt %></p>
-						<a href="/<%= events._id %>" class="card-text text-center btn btn-primary h3w">see more</a>
-						<a href="/<%= events._id %>/edit" class="card-text text-center btn btn-primary h3w">edit</a>
+						<a href="/events/<%= events._id %>" class="card-text text-center btn btn-primary h3w">see more</a>
+						<a href="/events/edit/<%= events._id %>" class="card-text text-center btn btn-primary h3w">edit</a>
 						<form class="delete-form" action="/<%= events._id %>?_method=DELETE" method="POST">
 							<button class="btn btn-danger">
 								Delete
@@ -46,8 +46,8 @@
 			<div class="d-flex flex-column card-body mx-auto card-img-overlay">
 				<h3 class="h3o card-text mx-auto text-center"><%= events.name %></h3>
 				<p class="bodycopyb card-text text-center"><%= events.excerpt %></p>
-				<a href="/<%= events._id %>" class="card-text text-center btn btn-primary h3w">see more</a>
-				<a href="/<%= events._id %>/edit" class="card-text text-center btn btn-primary h3w">edit</a>
+				<a href="/events/<%= events._id %>" class="card-text text-center btn btn-primary h3w">see more</a>
+				<a href="/events/edit/<%= events._id %>" class="card-text text-center btn btn-primary h3w">edit</a>
 				<form class="delete-form" action="/<%= events._id %>?_method=DELETE" method="POST">
 					<button class="btn btn-danger" value="">
 						Delete
