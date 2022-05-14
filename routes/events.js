@@ -105,7 +105,9 @@ router.post("/admin/new", (req, res) => {
 
 
 //SHOW - shows more info about one event
-router.get("/:id", (req, res) => {
+router.get("/events/:id", (req, res) => {
+	console.log(`/:id hit`)
+	console.log(req.body)
 	//find the event with provided id
 	Event.findById(req.params.id, (err, foundEvent) => {
 		if (err) {
@@ -122,7 +124,7 @@ router.get("/:id", (req, res) => {
 
 // EDIT EVENT ROUTE
 
-router.get("/:id/edit", (req,res) => {
+router.get("/events/edit/:id", (req,res) => {
 	Event.findById(req.params.id, (err, foundEvent) => {
 		res.render("admin/edit", {event: foundEvent});
 	});
@@ -131,7 +133,7 @@ router.get("/:id/edit", (req,res) => {
 
 // UPDATE EVENT ROUTE
 
-router.put("/:id", (req,res) => {
+router.put("/events/edit/:id", (req,res) => {
 	//find and update the correct campround
 	const shortOption= {day: '2-digit', month: 'short'};
 	
@@ -176,7 +178,7 @@ router.put("/:id", (req,res) => {
 
 // DESTROY EVENT ROUTE
 
-router.delete("/:id", (req, res) => {
+router.delete("/events/:id", (req, res) => {
 	// res.send("you have reached the delete route");
 	Event.findByIdAndRemove(req.params.id, (err) => {
 		if(err) {
