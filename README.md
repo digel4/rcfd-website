@@ -81,14 +81,12 @@ Here's a blank template to get started: To avoid retyping too much info. Do a se
 
 ### Built With
 
-* [Next.js](https://nextjs.org/)
-* [React.js](https://reactjs.org/)
-* [Vue.js](https://vuejs.org/)
-* [Angular](https://angular.io/)
-* [Svelte](https://svelte.dev/)
-* [Laravel](https://laravel.com)
+* [Embedded JavaScript Templates](https://ejs.co/)
 * [Bootstrap](https://getbootstrap.com)
-* [JQuery](https://jquery.com)
+* [Express](https://expressjs.com/)
+* [JSON Web Tokens](https://jwt.io/)
+* [MongoDB](https://www.mongodb.com/)
+
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
