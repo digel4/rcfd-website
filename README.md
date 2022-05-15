@@ -73,7 +73,7 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
-Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `github_username`, `repo_name`, `twitter_handle`, `linkedin_username`, `email_client`, `email`, `project_title`, `project_description`
+ <p>The aim of the project was to build an attractive SPA which could display all the events being run by Real Creative Futures. The events were stored using MongoDB. There is a also a basic content management system so a website admin can delete, modify and create new events and display them on the website. The admin login system uses passport.js to authorise users.</p>
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -82,9 +82,9 @@ Here's a blank template to get started: To avoid retyping too much info. Do a se
 ### Built With
 
 * [Embedded JavaScript Templates](https://ejs.co/)
+* [Passport.js](http://www.passportjs.org/)
 * [Bootstrap](https://getbootstrap.com)
-* [Express](https://expressjs.com/)
-* [JSON Web Tokens](https://jwt.io/)
+* [Express.js](https://expressjs.com/)
 * [MongoDB](https://www.mongodb.com/)
 
 
